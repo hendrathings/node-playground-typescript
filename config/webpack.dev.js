@@ -11,11 +11,12 @@ const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 module.exports = function (options) {
   return webpackMerge(commonConfig({ env: ENV }), {
 
-    plugins: [
-      new webpack.NoEmitOnErrorsPlugin()
-    ],
+    plugins: [],
 
     devtool: 'eval-source-map',
+    devServer: {
+      contentBase: './build'
+    },
     mode: ENV
   });
 }

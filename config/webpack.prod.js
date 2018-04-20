@@ -12,7 +12,6 @@ module.exports = function (options) {
   return webpackMerge(commonConfig({ env: ENV }), {
 
     plugins: [
-      new webpack.NoEmitOnErrorsPlugin(),
       new webpack.optimize.UglifyJsPlugin({
         sourceMap: true
       })

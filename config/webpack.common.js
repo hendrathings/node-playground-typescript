@@ -1,6 +1,7 @@
 // Modules
 const webpack = require('webpack');
 const helper = require('./helper');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = function (options) {
   return {
@@ -11,8 +12,8 @@ module.exports = function (options) {
     output: {
       path: helper.root('/build'),
       publicPath: '/',
-      filename: '[name].[hash].js',
-      chunkFilename: '[name].[hash].js',
+      filename: '[name].bundle.js',
+      chunkFilename: '[name].chunk.js',
       sourceMapFilename: '[file].[hash].map'
     },
 
@@ -21,6 +22,9 @@ module.exports = function (options) {
       rules: [{ test: /\.tsx?$/, loader: "ts-loader" }]
     },
 
-    plugins: []
+    plugins: [
+      new CleanWebpackPlugin(['build', 'dist']),
+      new webpack.NoEmitOnErrorsPlugin()
+    ]
   }
 };
