@@ -1,37 +1,42 @@
 import * as hapi from "hapi";
 
 export default class Server {
-  public static run(): void {
-    // Create a server with a host and port
-    const server = new hapi.Server({
+  public mapRoute = [];
+
+  private static instance: Server;
+  private hapiServer: hapi.Server;
+
+  public static getInstance() {
+    if (!Server.instance) {
+      Server.instance = new Server();
+    }
+    return Server.instance;
+  }
+
+  constructor() {
+    this.hapiServer = new hapi.Server({
       host: "localhost",
       port: 8000
     });
+  }
 
-    // Add the route
-    server.route({
-      method: "GET",
-      path: "/hello",
-      handler: function(request, h) {
-        return "hello world";
-      }
-    });
-
-    server.route({
-      method: "GET",
-      path: "/world",
-      handler: function(request, h) {
-        return { name: "have a nice day" };
-      }
+  public run(): void {
+    // Create a server with a host and port
+    this.mapRoute.forEach(route => {
+      this.hapiServer.route({
+        method: route.method,
+        path: route.path,
+        handler: route.handler
+      });
     });
 
     try {
-      server.start();
+      this.hapiServer.start();
     } catch (err) {
       console.log(err);
       process.exit(1);
     }
 
-    console.log("Server running at:", server.info.uri);
+    console.log("Server running at:", this.hapiServer.info.uri);
   }
 }
