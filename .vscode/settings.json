@@ -1,0 +1,13 @@
+{
+  "editor.tabSize": 2,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.snippetSuggestions": "top",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.rulers": [80, 120],
+  "files.exclude": {
+    "**/*.gitkeep": true,
+    "node_modules/": true,
+    "build/": true
+  }
+}
