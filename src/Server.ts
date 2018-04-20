@@ -17,6 +17,14 @@ export default class Server {
       }
     });
 
+    server.route({
+      method: "GET",
+      path: "/world",
+      handler: function(request, h) {
+        return "fromss world";
+      }
+    });
+
     try {
       server.start();
     } catch (err) {

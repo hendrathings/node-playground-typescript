@@ -33,9 +33,6 @@ module.exports = function(options) {
       new CleanWebpackPlugin(["build"]),
       new webpack.NoEmitOnErrorsPlugin()
     ],
-    node: {
-      fs: "empty",
-      net: "empty"
-    }
+    target: "node"
   };
 };
