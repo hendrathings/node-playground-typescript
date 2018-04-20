@@ -4,3 +4,4 @@ compiled/
 build/
 bin/
 *-error.log
+*-debug.log

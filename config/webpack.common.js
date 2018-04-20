@@ -23,8 +23,12 @@ module.exports = function(options) {
     },
 
     plugins: [
-      new CleanWebpackPlugin([helper.root("/build")]),
+      new CleanWebpackPlugin(["build"]),
       new webpack.NoEmitOnErrorsPlugin()
-    ]
+    ],
+    node: {
+      fs: "empty",
+      net: "empty"
+    }
   };
 };

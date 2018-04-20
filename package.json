@@ -10,14 +10,18 @@
       "webpack --config config/webpack.prod.js --bail --progress --profile",
     "server": "node server.js",
     "server:dev": "node dev-server.js",
-    "build": "webpack"
+    "build": "webpack",
+    "start": "npm run build:prod && node build/app.bundle.js"
   },
   "author": "",
   "license": "ISC",
   "private": true,
   "devDependencies": {
+    "@types/hapi": "^17.0.10",
+    "@types/node": "^9.6.6",
     "clean-webpack-plugin": "^0.1.19",
     "dotenv": "^5.0.1",
+    "es6-promise": "^4.2.4",
     "express": "^4.16.3",
     "raw-loader": "^0.5.1",
     "ts-loader": "^4.2.0",
@@ -28,5 +32,8 @@
     "webpack-dev-server": "^3.1.3",
     "webpack-hot-middleware": "^2.22.1",
     "webpack-merge": "^4.1.2"
+  },
+  "dependencies": {
+    "hapi": "^17.3.1"
   }
 }
