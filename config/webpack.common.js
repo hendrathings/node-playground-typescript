@@ -1,20 +1,20 @@
 // Modules
-const webpack = require('webpack');
-const helper = require('./helper');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require("webpack");
+const helper = require("./helper");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 
-module.exports = function (options) {
+module.exports = function(options) {
   return {
     entry: {
-      app: './src/App.ts'
+      app: ["./src/App.ts"]
     },
 
     output: {
-      path: helper.root('/build'),
-      publicPath: '/',
-      filename: '[name].bundle.js',
-      chunkFilename: '[name].chunk.js',
-      sourceMapFilename: '[file].[hash].map'
+      path: helper.root("/build"),
+      publicPath: "/",
+      filename: "[name].bundle.js",
+      chunkFilename: "[name].chunk.js",
+      sourceMapFilename: "[file].[hash].map"
     },
 
     // Initialize module
@@ -23,8 +23,8 @@ module.exports = function (options) {
     },
 
     plugins: [
-      new CleanWebpackPlugin(['build', 'dist']),
+      new CleanWebpackPlugin([helper.root("/build")]),
       new webpack.NoEmitOnErrorsPlugin()
     ]
-  }
+  };
 };

@@ -3,3 +3,4 @@ dist/
 compiled/
 build/
 bin/
+*-error.log
