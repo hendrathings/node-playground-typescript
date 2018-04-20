@@ -8,10 +8,7 @@
       "webpack --config config/webpack.dev.js --bail --progress --profile",
     "build:prod":
       "webpack --config config/webpack.prod.js --bail --progress --profile",
-    "server": "node server.js",
-    "server:dev": "node dev-server.js",
-    "build": "webpack",
-    "start": "npm run build:dev && node build/app.bundle.js"
+    "start": "webpack --watch"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +21,7 @@
     "dotenv": "^5.0.1",
     "es6-promise": "^4.2.4",
     "express": "^4.16.3",
+    "nodemon-webpack-plugin": "^4.0.3",
     "raw-loader": "^0.5.1",
     "typescript": "^2.8.3",
     "webpack": "^4.6.0",

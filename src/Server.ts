@@ -21,7 +21,7 @@ export default class Server {
       method: "GET",
       path: "/world",
       handler: function(request, h) {
-        return "fromss world";
+        return { name: "have a nice day" };
       }
     });
 
