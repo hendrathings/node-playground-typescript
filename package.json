@@ -11,7 +11,7 @@
     "server": "node server.js",
     "server:dev": "node dev-server.js",
     "build": "webpack",
-    "start": "npm run build:prod && node build/app.bundle.js"
+    "start": "npm run build:dev && node build/app.bundle.js"
   },
   "author": "",
   "license": "ISC",
@@ -19,12 +19,12 @@
   "devDependencies": {
     "@types/hapi": "^17.0.10",
     "@types/node": "^9.6.6",
+    "awesome-typescript-loader": "^5.0.0",
     "clean-webpack-plugin": "^0.1.19",
     "dotenv": "^5.0.1",
     "es6-promise": "^4.2.4",
     "express": "^4.16.3",
     "raw-loader": "^0.5.1",
-    "ts-loader": "^4.2.0",
     "typescript": "^2.8.3",
     "webpack": "^4.6.0",
     "webpack-cli": "^2.0.14",

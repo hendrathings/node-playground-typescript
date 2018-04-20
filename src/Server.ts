@@ -1,9 +1,9 @@
-import * as Hapi from "hapi";
+import * as hapi from "hapi";
 
-export class Server {
-  public static run() {
+export default class Server {
+  public static run(): void {
     // Create a server with a host and port
-    const server = new Hapi.Server({
+    const server = new hapi.Server({
       host: "localhost",
       port: 8000
     });
@@ -27,5 +27,3 @@ export class Server {
     console.log("Server running at:", server.info.uri);
   }
 }
-
-module.exports = Server;
